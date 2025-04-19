@@ -8,7 +8,6 @@ using namespace cv;
 using namespace std;
 
 int main() {
-    // Загрузка изображения
     string input_path = "C:/Users/555/Desktop/vision-lab/15.04/input.jpg";
     cout << "Loading image: " << input_path << endl;
     Mat image = imread(input_path);
@@ -18,7 +17,6 @@ int main() {
     }
     cout << "Image loaded: " << image.cols << "x" << image.rows << endl;
 
-    // Загрузка каскадов Хаара
     CascadeClassifier face_cascade, eye_cascade, smile_cascade;
     string face_cascade_path = "C:/Users/555/Desktop/vision-lab/15.04/haarcascade_frontalface_default.xml";
     string eye_cascade_path = "C:/Users/555/Desktop/vision-lab/15.04/haarcascade_eye.xml";
@@ -76,7 +74,6 @@ int main() {
         }
     }
 
-    // Сохранение результата
     string output_path = "C:/Users/555/Desktop/vision-lab/15.04/lab15_04_detected.jpg";
     if (imwrite(output_path, image)) {
         cout << "Saved: " << output_path << endl;
@@ -84,7 +81,6 @@ int main() {
         cout << "Error: Failed to save " << output_path << endl;
     }
 
-    // Отображение результата
     imshow("Face, Eye, and Smile Detection", image);
     waitKey(0);
     destroyAllWindows();
